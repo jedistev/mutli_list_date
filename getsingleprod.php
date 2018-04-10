@@ -2,20 +2,22 @@
     <div class="form-group">
         <div class="input-group">
             <span  class="input-group-addon">Search Sku</span>
-            <input type="text" name="sku_search_text_results" id="search_text_sku" placeholder="Search by SKU" class="form-control" /> 
+            <input type="text" id="skuInput" onkeyup="searchSkuFunction()" placeholder="Search for SKU" class="form-control">
         </div>
     </div>
 </div>
 
+
+
 <div class="row">
     <div class="col-sm-2"></div>
-<!--    <div class="col-sm-8">
+   <div class="col-sm-8">
         <div id="result"></div>
-    </div>-->
+    </div>
     <div class="col-sm-2"></div>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive" id="skuTable">
     <table class="table table bordered">
         <tr>
             <th style="width:20%">Product SKU</th>
@@ -126,5 +128,10 @@
         ?>
 
     </table>
+    
+    
+    <script>
+
+</script>
     
   
