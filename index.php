@@ -100,29 +100,6 @@ PtcDebug::load();
         ?>
         <script type="text/javascript">
             $(document).ready(function () {
-                load_data();
-                function load_data(query)
-                {
-                    $.ajax({
-                        url: "fetch.php",
-                        method: "post",
-                        data: {query: query},
-                        success: function (data)
-                        {
-                            $('#presentprod').html(data);
-                        }
-                    });
-                }
-                $('#search_text_sku').keyup(function () {
-                    var search = $(this).val();
-                    if (search !== '')
-                    {
-                        load_data(search);
-                    } else
-                    {
-                        load_data();
-                    }
-                });
                 $("#getSettlementbutton").click(function () {
                     var prodname = $('#selproduct :selected').text();
                     $.get("getsingleprod.php", {SettlementID: prodname}, function (getresult) {
@@ -130,6 +107,26 @@ PtcDebug::load();
                     });
                 });
             });
+            function searchSkuFunction() {
+                // Declare variables 
+                var input, filter, table, tr, td, i;
+                input = document.getElementById("skuInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("skuTable");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
         </script>
     </body>
 </html>
