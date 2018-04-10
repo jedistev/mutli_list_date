@@ -1,0 +1,10 @@
+{
+    "require": {
+        "psr/log": "dev-master",
+        "ext-mysqli": "* 7.1.9",
+        "wajox/phpmyconsole": "dev-master"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "dev-master"
+    }
+}
